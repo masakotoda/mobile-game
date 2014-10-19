@@ -231,7 +231,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/timeremaining" />
+        android:src="@drawable/frm_timeremaining" />
 
     <ImageView
         android:contentDescription="@string/blank"
@@ -240,7 +240,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageViewTimer"
         android:layout_toRightOf="@+id/imageViewTimer"
-        android:src="@drawable/score" />
+        android:src="@drawable/frm_score" />
 
     <ImageView
         android:contentDescription="@string/blank"
@@ -249,7 +249,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageViewScore"
         android:layout_toRightOf="@+id/imageViewScore"
-        android:src="@drawable/question" />
+        android:src="@drawable/frm_question" />
 
     <TextView
         android:id="@+id/textViewScore"
@@ -303,7 +303,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/imageViewScore"
-        android:src="@drawable/pass128" />
+        android:src="@drawable/btn_pass" />
 
     <ImageButton
         android:contentDescription="@string/blank"
@@ -312,7 +312,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/buttonPass"
         android:layout_toLeftOf="@+id/buttonPass"
-        android:src="@drawable/cheat128" />
+        android:src="@drawable/btn_cheat" />
 
     <ImageButton
         android:contentDescription="@string/blank"
@@ -321,7 +321,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/buttonPass"
         android:layout_toLeftOf="@+id/buttonCheat"
-        android:src="@drawable/pause128" />
+        android:src="@drawable/btn_pause" />
 
     <ImageButton
         android:contentDescription="@string/blank"
@@ -330,7 +330,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/concur256" />
+        android:src="@drawable/btn_check" />
 
     <ImageView
         android:contentDescription="@string/blank"
