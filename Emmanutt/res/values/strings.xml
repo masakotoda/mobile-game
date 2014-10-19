@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Emmanutt</string>
+    <string name="action_settings">About Emmanutt</string>
+    <string name="hello_world">Emma Nutt is the world\'s first female telephone operator in 19th century. This game was created to admire her life and four other great operators in present day&#8230;</string>
+    <string name="level1">Level 1</string>
+    <string name="level2">Level 2</string>
+    <string name="level3">Level 3</string>
+    <string name="level4">Level 4</string>
+    <string name="level5">Level 5</string>
+    <string name="level6">Level 6</string>
+    <string name="level7">Level 7</string>
+    <string name="level8">Level 8</string>
+    <string name="number">9</string>
+    <string name="operator">+</string>
+    <string name="result"> = 72</string>
+    <string name="cheat">Cheat</string>
+    <string name="blank"></string>
+    <string name="instruction">Fill in correct operators by tapping \'?\'</string>
+</resources>
