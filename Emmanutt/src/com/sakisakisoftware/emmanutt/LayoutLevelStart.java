@@ -21,6 +21,8 @@ public class LayoutLevelStart implements EmmanuttLayout
 	@Override
 	public void initialize() 
 	{
+		m_activity.setTitle(m_activity.getString(R.string.app_name));
+
 		m_activity.setContentView(R.layout.level_start);
 		TextView view = (TextView)m_activity.findViewById(R.id.textView1);
 		view.setText("Level " + m_level);

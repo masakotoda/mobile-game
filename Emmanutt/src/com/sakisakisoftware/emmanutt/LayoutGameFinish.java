@@ -34,6 +34,8 @@ public class LayoutGameFinish implements EmmanuttLayout
 	@Override
 	public void initialize() 
 	{
+		m_activity.setTitle(m_activity.getString(R.string.app_name));
+
 		m_activity.setContentView(R.layout.game_finish);
 		
     	m_viewScore = (TextView)m_activity.findViewById(R.id.textViewScore);
