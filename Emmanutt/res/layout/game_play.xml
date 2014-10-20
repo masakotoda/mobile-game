@@ -242,15 +242,6 @@
         android:layout_toRightOf="@+id/imageViewTimer"
         android:src="@drawable/frm_score" />
 
-    <ImageView
-        android:contentDescription="@string/blank"
-        android:id="@+id/imageViewQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageViewScore"
-        android:layout_toRightOf="@+id/imageViewScore"
-        android:src="@drawable/frm_question" />
-
     <TextView
         android:id="@+id/textViewScore"
         android:layout_width="wrap_content"
@@ -279,21 +270,6 @@
         android:text="@string/number"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FF7F27"
-        android:textSize="28sp" />
-
-    <TextView
-        android:id="@+id/textViewQuestion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageViewQuestion"
-        android:layout_alignLeft="@+id/imageViewQuestion"
-        android:layout_alignRight="@+id/imageViewQuestion"
-        android:layout_alignTop="@+id/textViewTimer"
-        android:layout_alignWithParentIfMissing="false"
-        android:gravity="center"
-        android:text="@string/number"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#00A2E8"
         android:textSize="28sp" />
     
     <ImageButton
