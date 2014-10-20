@@ -34,7 +34,6 @@ public class LayoutGame implements EmmanuttLayout
 	
 	TextView m_viewScore;
 	TextView m_viewTimer;
-	TextView m_viewQuestion;
 	ImageView m_viewGradeL;
 	ImageView m_viewGradeR;
 	View[] m_numbers = new View[m_countLevel + 1];
@@ -67,6 +66,7 @@ public class LayoutGame implements EmmanuttLayout
 		{
 			m_countDown.cancel();
 		}
+
 		m_activity.showLevelSelectLayout();
 	}
 
@@ -77,7 +77,6 @@ public class LayoutGame implements EmmanuttLayout
       	 
     	m_viewScore = (TextView)m_activity.findViewById(R.id.textViewScore);
     	m_viewTimer = (TextView)m_activity.findViewById(R.id.textViewTimer);
-    	m_viewQuestion = (TextView)m_activity.findViewById(R.id.textViewQuestion);
     	m_viewGradeL = (ImageView)m_activity.findViewById(R.id.imageGradeL);
     	m_viewGradeR = (ImageView)m_activity.findViewById(R.id.imageGradeR);
 
@@ -169,6 +168,9 @@ public class LayoutGame implements EmmanuttLayout
 
 		if (m_remaining == 0)
 		{
+			String description = "You have solved " + m_correct + " problems!";
+			m_activity.saveHistory(m_level, m_score, description);
+			
 			showTheGrade();
 			return;
 		}
@@ -188,8 +190,9 @@ public class LayoutGame implements EmmanuttLayout
    	 	}
    	 	
 		Integer current = m_total - m_remaining;
-		m_viewQuestion.setText(current.toString() + " / " + m_total.toString());		
-
+		String title = "Question " + current.toString() + " / " + m_total.toString();
+		m_activity.setTitle(title);
+		
    	 	for (int i = 0; i < m_level + 1; i++)
    	 	{
    	 		setNumberImage(m_numbers[i], m_listVals.get(i));
@@ -294,42 +297,7 @@ public class LayoutGame implements EmmanuttLayout
 	
 	void showTheGrade()
 	{
-		m_activity.findViewById(R.id.buttonPause).setEnabled(m_pause);
-		m_activity.findViewById(R.id.buttonPass).setEnabled(m_pause);
-		m_activity.findViewById(R.id.buttonCheat).setEnabled(m_pause);
-		m_activity.findViewById(R.id.buttonCheck).setEnabled(m_pause);
-		for (int i = 0; i < m_operators.length; i++)
-			m_operators[i].setEnabled(m_pause);
-
-		int idDrawable = (m_correct < 5) ? R.drawable.grade_bad : R.drawable.grade_good;
-		
-		Toast.makeText(m_activity, "You have solved " + m_correct + " problems!", Toast.LENGTH_LONG).show();
-
-		m_viewGradeL.setImageResource(idDrawable);
-		m_viewGradeR.setImageResource(idDrawable);
-		
-		new CountDownTimer(500 * 8, 500) 
-		{
-			public void onTick(long millisUntilFinished) 
-			{
-				if (m_viewGradeL.getVisibility() == View.VISIBLE)
-	   	    	{
-		   			m_viewGradeL.setVisibility(View.INVISIBLE);
-		   			m_viewGradeR.setVisibility(View.VISIBLE);
-	   	    	}
-	   	    	else
-	   	    	{
-		   			m_viewGradeR.setVisibility(View.INVISIBLE);
-		   			m_viewGradeL.setVisibility(View.VISIBLE);
-	   	    	}
-	   	    }
-
-	   	    public void onFinish() 
-	   	    {
-	   			m_viewGradeR.setVisibility(View.VISIBLE);
-	   			m_viewGradeL.setVisibility(View.VISIBLE);
-	   	    }
-		}.start();   	 	
+		m_activity.showGameFinishLayout(m_level, m_correct, m_score);
 	}
 	
 	void setOnClickListnerCheck()

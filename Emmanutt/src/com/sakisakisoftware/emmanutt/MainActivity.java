@@ -1,6 +1,8 @@
 package com.sakisakisoftware.emmanutt;
 
-import com.sakisakisoftware.sakiutil.DialogHelper;
+import java.util.ArrayList;
+
+import com.sakisakisoftware.sakiutil.*;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -11,14 +13,23 @@ import android.view.MenuItem;
 public class MainActivity extends Activity {
 
 	private EmmanuttLayout m_layout;
+    private EmmanuttSettings m_settings;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
+        m_settings = new EmmanuttSettings(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         showMainLayout();
 	}
+	
+    @Override
+    protected void onDestroy()
+    {
+        //m_settings.save();
+        super.onDestroy();        
+    }
 	
 	public void showLevelSelectLayout()
 	{
@@ -44,6 +55,17 @@ public class MainActivity extends Activity {
 		m_layout.initialize();
 	}
 	
+	public void showGameFinishLayout(int level, int correct, int point)
+	{
+		m_layout = new LayoutGameFinish(this, level, correct, point);
+		m_layout.initialize();
+	}
+
+	public void saveHistory(int level, int score, String description)
+	{
+		m_settings.notifySaveGame(level, score, description, false);
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -56,6 +78,9 @@ public class MainActivity extends Activity {
     {
         switch (item.getItemId())
         {
+        case R.id.action_history:
+            showHistory();
+            break;
         case R.id.action_settings:
             showAbout();
             break;
@@ -82,4 +107,15 @@ public class MainActivity extends Activity {
     {
     	DialogHelper.showAlert(this, "About Emmanutt", "Emmanutt by (c) Sakisaki software");
     }
+
+    void showHistory()
+    {
+    	(new DialogHistory(this)).show();
+    }
+
+    ArrayList<SakiSQLiteHelper.HistoryItem> loadHistory()
+    {
+    	return m_settings.loadHistory();
+    }
+    
 }

@@ -25,6 +25,8 @@ public class LayoutLevelSelect implements EmmanuttLayout
 	@Override
 	public void initialize() 
 	{
+		m_activity.setTitle(m_activity.getString(R.string.app_name));
+
 		m_activity.setContentView(R.layout.level_select);
 
 		m_imageViews[0] = m_activity.findViewById(R.id.imageView1);
