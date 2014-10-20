@@ -1,0 +1,128 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/imageGradeLeft"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <ImageView
+        android:id="@+id/imageViewTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/blank"
+        android:src="@drawable/frm_question" />
+
+    <TextView
+        android:id="@+id/textViewQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageViewTimer"
+        android:layout_alignLeft="@+id/imageViewTimer"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/imageViewTimer"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="@string/number"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#00A2E8"
+        android:textSize="28sp" />
+
+    <ImageView
+        android:id="@+id/imageGradeL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:contentDescription="@string/blank"
+        android:src="@drawable/grade_good" />
+
+    <ImageView
+        android:id="@+id/imageGradeR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/blank"
+        android:src="@drawable/grade_bad" />
+
+    <ImageButton
+        android:id="@+id/buttonPlayAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageGradeR"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/blank"
+        android:src="@drawable/btn_playagain128" />
+
+    <ImageButton
+        android:id="@+id/buttonNextLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonPlayAgain"
+        android:layout_toRightOf="@+id/buttonPlayAgain"
+        android:contentDescription="@string/blank"
+        android:src="@drawable/btn_nextlevel128" />
+
+    <ImageButton
+        android:id="@+id/buttonExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonPlayAgain"
+        android:layout_toLeftOf="@+id/buttonPlayAgain"
+        android:contentDescription="@string/blank"
+        android:src="@drawable/btn_exit128" />
+
+    <ImageView
+        android:id="@+id/imageViewScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/imageViewTimer"
+        android:contentDescription="@string/blank"
+        android:src="@drawable/frm_score" />
+
+    <TextView
+        android:id="@+id/textViewScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageViewScore"
+        android:layout_alignLeft="@+id/imageViewScore"
+        android:layout_alignRight="@+id/imageViewScore"
+        android:layout_alignTop="@+id/textViewQuestion"
+        android:gravity="center"
+        android:text="@string/number"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#22B14C"
+        android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageViewTimer"
+        android:layout_toLeftOf="@+id/imageViewScore"
+        android:layout_toRightOf="@+id/imageViewTimer"
+        android:gravity="center"
+        android:text="@string/emmasays"
+        android:textColor="#EEEEEE" />
+
+    <TextView
+        android:id="@+id/textViewFortune"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageGradeL"
+        android:layout_alignLeft="@+id/imageGradeL"
+        android:layout_alignRight="@+id/imageGradeR"
+        android:layout_below="@+id/imageViewTimer"
+        android:gravity="center"
+        android:text="@string/emmasays"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#EEEEEE" />
+
+</RelativeLayout>
