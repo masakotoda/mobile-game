@@ -1,23 +1,21 @@
 package com.sakisakisoftware.emmanutt;
-import com.sakisakisoftware.sakiutil.*;
-import java.util.ArrayList;
 
 import android.app.Dialog;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.CheckBox;
 
-public class DialogHistory extends Dialog
+public class DialogOptions extends Dialog
 {    
    protected MainActivity m_activity;
  
    void setContentView()
    {
-       setContentView(R.layout.dialog_history);
+       setContentView(R.layout.dialog_option);
    }
    
-   public DialogHistory(MainActivity activity)
+   public DialogOptions(MainActivity activity)
    {
        super(activity);
        m_activity = activity;
@@ -27,7 +25,7 @@ public class DialogHistory extends Dialog
        Button closeButton = (Button) findViewById(R.id.buttonClose);
        setButtonActionClose(closeButton);
 
-       loadHistory();
+       loadOptions();
    }
 
    private void setButtonActionClose(Button clicked)
@@ -37,16 +35,16 @@ public class DialogHistory extends Dialog
            @Override
            public void onClick(View v) 
            {
-               dismiss();
+        	   CheckBox checkBox = (CheckBox) findViewById(R.id.checkBoxEasy);
+        	   m_activity.setEasyMode(checkBox.isChecked());
+        	   dismiss();
            }
        });
    }
 
-   private void loadHistory()
+   private void loadOptions()
    {
-       ArrayList<SakiSQLiteHelper.HistoryItem> items = m_activity.loadHistory();
-       ListView listView = (ListView) findViewById(R.id.listViewHistory);
-       ListAdapterHistory adapter = new ListAdapterHistory(m_activity, items);
-       listView.setAdapter(adapter);
+	   CheckBox checkBox = (CheckBox) findViewById(R.id.checkBoxEasy);
+	   checkBox.setChecked(m_activity.isEasyMode());
    }
 }

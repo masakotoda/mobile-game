@@ -113,16 +113,24 @@ public class ProblemGenerator {
 			return 9;
 	}
 	
-	char getNextOp(char op)
+	char getNextOp(char op, boolean easyMode)
 	{
-		if (op == '+')
-			return '-';
-		if (op == '-')
-			return '*';
-		if (op == '*')
-			return '/';
-		if (op == '/')
-			return '+';
+		if (easyMode)
+		{
+			if (op == '+')
+				return '-';
+		}
+		else
+		{
+			if (op == '+')
+				return '-';
+			if (op == '-')
+				return '*';
+			if (op == '*')
+				return '/';
+			if (op == '/')
+				return '+';
+		}
 		return '+';
 	}
 
@@ -166,7 +174,7 @@ public class ProblemGenerator {
 	//  if last operator is + or -, last number = num
 	// evaluate the result, if it's < 0, try to pick other number,
 	// if no number is found, change the operator
-	public int generateProblem(int level, ArrayList<Integer> listVals, ArrayList<Character> listOps)
+	public int generateProblem(boolean easyMode, int level, ArrayList<Integer> listVals, ArrayList<Character> listOps)
 	{
 		Random r = new Random();
 		
@@ -181,7 +189,7 @@ public class ProblemGenerator {
 		int last = i0;
 		for (int i = 0; i < level; i++)
 		{
-			int opNum = r.nextInt(4); // 0-3
+			int opNum = r.nextInt(easyMode ? 2 : 4); // 0-3
 			char op = ops[opNum];
 			int val = r.nextInt(9) + 1;
 			boolean ok = false;
@@ -196,7 +204,7 @@ public class ProblemGenerator {
 				}
 				if (ok)
 					break;
-				op = getNextOp(op);
+				op = getNextOp(op, easyMode);
 			}
 			
 			if (op == '/')

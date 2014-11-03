@@ -13,7 +13,7 @@ import android.view.MenuItem;
 public class MainActivity extends Activity {
 
 	private EmmanuttLayout m_layout;
-    private EmmanuttSettings m_settings;
+	private EmmanuttSettings m_settings;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +81,9 @@ public class MainActivity extends Activity {
         case R.id.action_history:
             showHistory();
             break;
+        case R.id.action_option:
+            showOption();
+            break;
         case R.id.action_settings:
             showAbout();
             break;
@@ -113,9 +116,25 @@ public class MainActivity extends Activity {
     	(new DialogHistory(this)).show();
     }
 
+    void showOption()
+    {
+    	(new DialogOptions(this)).show();
+    }
+
     ArrayList<SakiSQLiteHelper.HistoryItem> loadHistory()
     {
     	return m_settings.loadHistory();
     }
     
+    public boolean isEasyMode()
+    {
+    	int value = m_settings.loadInteger("EasyMode");
+    	return (value == 1);
+    }
+    
+    public void setEasyMode(boolean value)
+    {
+ 	   	m_settings.saveItem("EasyMode", value ? 1 : 0);
+ 	}
+        
 }

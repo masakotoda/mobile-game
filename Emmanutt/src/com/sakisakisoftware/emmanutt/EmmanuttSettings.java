@@ -57,6 +57,38 @@ public class EmmanuttSettings
     {
     }
 
+    public int loadInteger(String key)
+    {
+    	int ret = 0;
+        
+    	SQLiteOpenHelper helper = new SakiSQLiteHelper(m_activity, m_appName);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        try
+        {
+        	ret = SakiSQLiteHelper.loadInteger(key, 0, db);
+        }
+        catch (Exception e)
+        {
+        }
+        db.close();
+
+        return ret;
+    }
+    
+    public void saveItem(String key, int value)
+    {
+    	SQLiteOpenHelper helper = new SakiSQLiteHelper(m_activity, m_appName);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        try
+        {
+        	SakiSQLiteHelper.saveItem(key, value, db);
+        }
+        catch (Exception e)
+        {
+        }
+        db.close();
+    }
+    
     public ArrayList<SakiSQLiteHelper.HistoryItem> loadHistory()
     {
         ArrayList<SakiSQLiteHelper.HistoryItem> items = null;

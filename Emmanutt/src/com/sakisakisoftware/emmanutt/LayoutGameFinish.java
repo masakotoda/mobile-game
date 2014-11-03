@@ -51,11 +51,11 @@ public class LayoutGameFinish implements EmmanuttLayout
 		
     	if (m_correct < 5)
     	{
-    		m_viewFortune.setText("Your performance doesn't deserve my secret.\nTry harder, Grasshopper...");
+    		m_viewFortune.setText(m_activity.getString(R.string.nosecret));
     	}
     	else
     	{
-    		m_viewFortune.setText("Well done! I will tell you my secret.\nI was paid a salary of $10 per month for a 54 hour week.\nDo you make more that I did? No kidding!");
+    		m_viewFortune.setText(getSecret());
     	}
 
 		m_viewGradeL.setImageResource(idDrawable);
@@ -129,5 +129,29 @@ public class LayoutGameFinish implements EmmanuttLayout
 				m_activity.finish();
 			}
 		});
+	}
+	
+	String getSecret()
+	{
+		int[] resIDs = new int [10];
+		resIDs[0] = R.string.emmassecret;
+		resIDs[1] = R.string.secret1;
+		resIDs[2] = R.string.secret2;
+		resIDs[3] = R.string.secret3;
+		resIDs[4] = R.string.secret4;
+		resIDs[5] = R.string.secret5;
+		resIDs[6] = R.string.secret6;
+		resIDs[7] = R.string.secret7;
+		resIDs[8] = R.string.secret8;
+		resIDs[9] = R.string.secret9;
+		int index = (int)(Math.random() * resIDs.length);
+		if (index >= resIDs.length)
+			index = 0;
+		
+		String secret = "";
+		if (index > 0)
+			secret += "Well done! I will tell you a secret about " + Integer.toString(index) + ".\n";
+		secret += m_activity.getString(resIDs[index]);
+		return secret;
 	}
 }

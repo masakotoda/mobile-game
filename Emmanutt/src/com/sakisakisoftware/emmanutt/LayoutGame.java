@@ -182,7 +182,9 @@ public class LayoutGame implements EmmanuttLayout
 		m_listCheatOps.clear();
 		m_listUserOps.clear();
 		
-   	 	Integer result = m_generator.generateProblem(m_level, m_listVals, m_listCheatOps);
+		boolean easyMode = m_activity.isEasyMode();
+   	 	Integer result = m_generator.generateProblem(easyMode,
+   	 			m_level, m_listVals, m_listCheatOps);
 
    	 	for (int i = 0; i < m_listCheatOps.size(); i++)
    	 	{

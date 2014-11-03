@@ -4,6 +4,7 @@
     <string name="app_name">Emmanutt</string>
     <string name="action_settings">About Emmanutt</string>
     <string name="action_history">Your History</string>
+    <string name="action_option">Option</string>
     <string name="hello_world">Emma Nutt is the world\'s first female telephone operator in 19th century. This game was created to admire her life and four other great operators in present day&#8230;</string>
     <string name="level1">Level 1</string>
     <string name="level2">Level 2</string>
@@ -20,5 +21,17 @@
     <string name="blank"></string>
     <string name="close">Close</string>
     <string name="instruction">Fill in correct operators by tapping \'?\'</string>
-    <string name="emmasays">Ms. Emma Nutt says:</string>
+    <string name="emmasays">A Word from Ms. Emma Nutt:</string>
+    <string name="nosecret">Your performance doesn\'t deserve my secret.\nTry harder, Grasshopper&#8230;</string>
+    <string name="emmassecret">Well done! I will tell you my secret.\nI was paid a salary of $10 per month for a 54 hour week. No kidding!</string>
+    <string name="secret1">The smallest natural number and smallest odd number.</string>
+    <string name="secret2">The smallest prime number and the only even prime number - \'the oddest prime\'.</string>
+    <string name="secret3">When any player in soccer scores 3 goals in one game, it\'s called a hat-trick.</string>
+    <string name="secret4">\'Fantastic 4\' is Marvel Comic\'s superhero team.\nThe Beatles were called \'Fab 4\'.</string>
+    <string name="secret5">All major north-south Interstate Highways in the United States end in 5.</string>
+    <string name="secret6">Insects have 6 legs. Hence spiders are not insects.</string>
+    <string name="secret7">The sum of the squares of the first 7 prime numbers is 666.</string>
+    <string name="secret8">8 x 8 x 8 = 512 and 5 + 1 + 2 = 8</string>
+    <string name="secret9">9 x 12345679 = 111111111</string>
+    <string name="easy_mode">Easy Mode (\'+\' &amp; \'-\' only)</string>
 </resources>
